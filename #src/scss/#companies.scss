@@ -1,0 +1,116 @@
+.companies {
+	&__hero {
+		& .swiper-slide {
+			border-bottom: none;
+		}
+	}
+
+	&__text-block {
+		margin: 15.3rem 0 15rem;
+
+		& .text-block__text {
+			max-width: 66rem;
+		}
+
+
+		@media (max-width: $md3+px) {
+			margin: 10rem 0 10rem;
+		}
+
+		@media (max-width: $md4+px) {
+			margin: 5rem 0 5rem;
+		}
+	}
+
+	&__citation {
+		margin: 15.3rem 0 15rem;
+
+		@media (max-width: $md3+px) {
+			margin: 10rem 0 10rem;
+		}
+
+		@media (max-width: $md4+px) {
+			margin: 5rem 0 5rem;
+		}
+	}
+
+	&__slider {
+		
+	}
+
+}
+
+
+
+
+.citation {
+	&__body {
+		max-width: 128rem;
+		margin: 0 auto;
+		text-align: center;
+	}
+	&__text {
+		display: flex;
+		color: #231f20;
+		font-family: $seconFontFamily;
+		font-size: 3.2rem;
+		font-weight: 300;
+		line-height: 4.2rem;
+		justify-content: center;
+		align-items: flex-start;
+
+		@media (max-width: $md2+px) {
+			font-size: 2.2rem;
+			line-height: 3.2rem;
+		}
+
+		@media (max-width: $md3+px) {
+			font-size: 1.5rem;
+			line-height: 2.2rem;
+		}
+
+		& > p {
+			margin-bottom: 2rem;
+		}
+
+		& > span {
+			color: $mainColor;
+			font-family: $seconFontFamily;
+			font-size: 15rem;
+			font-weight: 300;
+			margin-top: 2rem;
+
+			&:last-child {
+				align-self:flex-end;
+				margin-top: 14rem;
+			}
+
+			@media (max-width: $md2+px) {
+				font-size: 12rem;
+
+				&:last-child {
+					margin-top: 12rem;
+				}
+			}
+
+			@media (max-width: $md3+px) {
+				font-size: 7rem;
+
+				&:last-child {
+					margin-top: 5rem;
+				}
+			}
+		}
+	}
+	&__subtext {
+		color: #231f20;
+		font-size: 1.5rem;
+		font-weight: 700;
+		letter-spacing: 0.214rem;
+		text-transform: uppercase;
+
+		@media (max-width: $md3+px) {
+			font-size: 1rem;
+		}
+	}
+}
