@@ -98,6 +98,15 @@ a {
 	}
 }
 
+@keyframes dotAnim {
+	from {
+		width: 0%;
+	}
+	to{
+		width: 50%;
+	}
+}
+
 
 // //<ОБОЛОЧКА>===========================================================================================================
 // .wrapper {
@@ -336,7 +345,11 @@ a {
 	&_left {
 		& .text-block__body {
 			align-items: flex-start;
+			padding-left: 4.5rem;
 
+			@media (max-width: $md3+px) {
+				padding-left: 1.5rem;
+			}
 
 			& .text-block__suptitle {
 				margin-bottom: 1rem;
@@ -408,7 +421,11 @@ a {
 	}
 
 	&__logo-wrap {
-		margin-bottom: 6rem;
+		margin-bottom: 4rem;
+
+		@media (max-width: $md3+px) {
+			margin-bottom: 2rem;
+		}
 	}
 
 	&__line {
@@ -418,10 +435,22 @@ a {
 		height: 0.7rem;
 		background: #5a92ab;
 		margin-bottom: 3rem;
+
+		transition: all .8s ease;
+		transform: translate(0, 120%);
+		opacity: 0;
+		&._active {
+			transition: all .8s ease 0.4s;
+			transform: translate(0, 0);
+			opacity: 1;
+		}
 	}
 
 	&__suptitle {
 		margin-bottom: 1rem;
+		transition: all .8s ease;
+		transform: translate(0, 120%);
+		opacity: 0;
 
 		@media (max-width: $md3+px) {
 			margin-bottom: 0.8rem;
@@ -430,10 +459,25 @@ a {
 		@media (max-width: $md4+px) {
 			margin-bottom: 0.5rem;
 		}
+
+		&._active {
+			transition: all .8s ease 0.4s;
+			transform: translate(0, 0);
+			opacity: 1;
+		}
 	}
 	&__title {
 		margin-bottom: 4rem;
 		max-width: 90rem;
+
+		transition: all .8s ease;
+		transform: translate(0, 120%);
+		opacity: 0;
+		&._active {
+			transition: all .8s ease 0.4s;
+			transform: translate(0, 0);
+			opacity: 1;
+		}
 
 		@media (max-width: $md3+px) {
 			margin-bottom: 3rem;
@@ -452,6 +496,15 @@ a {
 		font-weight: 300;
 		line-height: 2.5rem;
 		margin-bottom: 4.8rem;
+		transition: all .8s ease;
+		
+		transform: translate(0, 120%);
+		opacity: 0;
+		&._active {
+			transition: all .8s ease 0.4s;
+			transform: translate(0, 0);
+			opacity: 1;
+		}
 
 		& p {
 
@@ -475,10 +528,18 @@ a {
 		}
 	}
 
-	&__btn-wrap {}
+	&__btn-wrap {
+		transition: all .8s ease;
+		transform: translate(0, 120%);
+		opacity: 0;
+		&._active {
+			transition: all .8s ease 0.4s;
+			transform: translate(0, 0);
+			opacity: 1;
+		}
+	}
 }
 // === and text-block ========================================================================
-
 
 
 // === block-columns-2 ========================================================================
@@ -1373,6 +1434,7 @@ a {
 					width: 50%;
 					background: #fff;
 					z-index: 2;
+					animation: dotAnim .2s ease;
 				}
 			}
 		}
