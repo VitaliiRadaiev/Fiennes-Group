@@ -978,6 +978,50 @@ a {
 
 // === and three-img-block ========================================================================
 
+// === three-img-block-right ========================================================================
+.three-img-block-right {
+	&__body {
+		display: grid;
+		grid-template-columns: repeat(2,1fr);	
+		gap: 30px;
+		grid-auto-flow: dense;
+
+		@media (max-width: $md3+px) {
+			gap: 15px;
+		}
+	}
+	&__item {
+		height: 0;
+		padding-bottom: 68%;
+		background: #ccc;
+
+		&:nth-child(1) {
+			grid-row: span 2;
+			padding-bottom: 0;
+			height: auto;
+		}
+
+		&:nth-child(3n+4) {
+			grid-row: span 2;
+			padding-bottom: 0;
+			height: auto;
+			grid-column-end: -1;
+		}
+
+		&:nth-child(6n+7) {
+			grid-row: span 2;
+			padding-bottom: 0;
+			height: auto;
+			grid-column-end: auto;
+			grid-column-start: 1;
+
+		}
+
+	}
+}
+
+// === and three-img-block-right ========================================================================
+
 
 
 
