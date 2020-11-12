@@ -1,0 +1,166 @@
+ .leadership {
+ 	&__hero {}
+
+ 	&__text-block {
+ 		margin: 15.3rem 0 15rem;
+
+ 		@media (max-width: $md3+px) {
+ 			margin: 10rem 0 10rem;
+ 		}
+
+ 		@media (max-width: $md4+px) {
+ 			margin: 5rem 0 5rem;
+ 		}
+
+
+ 		& .text-block__suptitle  {
+ 			margin-bottom: 4rem;
+ 		}
+ 	}
+
+ 	&__team {
+ 		margin: 15.3rem 0 0rem;
+
+ 		@media (max-width: $md3+px) {
+ 			margin: 10rem 0 10rem;
+ 		}
+
+ 		@media (max-width: $md4+px) {
+ 			margin: 5rem 0 5rem;
+ 		}
+
+ 		& .block-columns-2 {
+ 			justify-content: space-between;
+
+ 			@media (max-width: $md3+px) {
+ 				justify-content: center;
+ 			}
+
+ 			& .column {
+ 				max-width: 524px;
+ 				margin-bottom: 15rem;
+
+ 				@media (max-width: $md3+px) {
+ 					margin-bottom: 10rem;
+ 				}
+
+ 			}
+ 		}
+
+ 		& .card {
+ 			& .card__title {
+ 				margin-bottom: 0.7rem;
+ 			}
+ 		}
+
+ 		& .card__subtitle {
+ 			margin-bottom: 4.5rem;
+ 		}
+
+ 		& .card__img {
+ 			padding-bottom: 109%;
+ 		}
+
+ 		& .card__text-wrap {
+ 			& p {
+ 				font-size: 14px;
+ 			}
+ 		}
+ 	}
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ .simple-hero {
+ 	padding: 0 3rem; 
+
+ 	@media (max-width: $md3+px) {
+ 		padding: 0 1.5rem; 
+ 	}
+
+ 	&__body {
+ 		position: relative;
+ 	}
+ 	&__img {
+ 		position: absolute;
+ 		top: 0;
+ 		left: 0;
+ 		width: 100%;
+ 		height: 100%;
+ 		z-index: -1;
+ 		background: #515e65;
+ 	}
+ 	&__content {
+ 		min-height: 539px;
+ 		display: flex;
+ 		flex-direction: column;
+ 		color: #fff;
+ 		justify-content: center;
+ 		text-align: center;
+ 		padding: 4rem 1.5rem 3rem;
+ 		background-color: rgba(0, 0, 0, 0.1);
+ 		@media (max-width: $md2+px) {
+ 			min-height: 36rem;
+ 		}
+ 	}
+ 	&__suptitle {
+ 		font-size: 1.5rem;
+ 		font-weight: 700;
+ 		letter-spacing: 0.214rem;
+ 		line-height: 1.8rem;
+ 		text-transform: uppercase;
+
+ 		@media (max-width: $md3+px) {
+ 			font-size: 1.4rem;
+ 			letter-spacing: 0.3rem;
+ 		}
+
+ 		@media (max-width: $md4+px) {
+ 			font-size: 1.2rem;
+ 			letter-spacing: 0.2rem;
+ 		}
+ 	}
+ 	&__title {
+ 		font-size: 5.8rem;
+ 		font-weight: 700;
+ 		letter-spacing: 0.845rem;
+ 		line-height: 6.5rem;
+ 		text-transform: uppercase;
+ 		margin-top: 1.5rem;
+ 		max-width: 1185px;
+ 		margin-left: auto;
+ 		margin-right: auto;
+
+ 		@media (max-width: 1023px) {
+ 			font-size: 4rem;
+ 			letter-spacing: 0.657rem;
+ 			line-height: 6rem;
+ 		}
+
+ 		@media (max-width: $md3+px) {
+ 			font-size: 3rem;
+ 			letter-spacing: 0.457rem;
+ 			line-height: 4rem;
+ 			margin-top: 0;
+ 		}
+
+ 		@media (max-width: $md4+px) {
+ 			font-size: 2.2rem;
+ 			letter-spacing: 0.357rem;
+ 			line-height: 3rem;
+ 		}
+ 	}
+ }

@@ -109,6 +109,14 @@
 		letter-spacing: 0.214rem;
 		text-transform: uppercase;
 		margin-bottom: 3.3rem;
+
+		& > a {
+			color: #5a91ab;
+			font-size: 1.5rem;
+			font-weight: 700;
+			letter-spacing: 0.214rem;
+			text-transform: uppercase;
+		}
 	}
 
 	&__nav-list {
