@@ -8,6 +8,12 @@
 		@media (max-width: $md3+px) {
 			padding: 0 1.5rem;
 		}
+
+		& .hero__title {
+			margin-left: auto;
+		    margin-right: auto;
+		    max-width: 812px;
+		}
 	}
 
 	&__text-block {
@@ -19,6 +25,67 @@
 
 		@media (max-width: $md4+px) {
 			margin: 5rem 0 5rem;
+		}
+
+		& .text-block__text {
+			& p {
+				&:not(:last-child) {
+					margin-bottom: 3rem;
+				}
+			}
+		}
+	}
+
+	&__slider {
+		margin: 7rem auto;
+
+		padding: 0 0;
+
+
+		@media (max-width: $md3+px) {
+			padding: 0 1.5rem;
+		}
+
+		&.slider-2 {
+			& .scrollbar-wrap {
+				height: 3rem;
+			}
+
+			& .slider-2__text {
+				max-width: none;
+				transition: all .3s ease;
+				opacity: 0;
+			}
+
+			& .swiper-slide {
+				&.swiper-slide-active {
+					& .slider-2__text {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+
+	&__family {
+		margin: 17.2rem 0 4rem;
+		background-color: #f9f9f9;
+		background-image: linear-gradient(180deg, #f9f9f9 0%, #ffffff 100%);
+		padding-top: 17.6rem;
+
+		@media (max-width: 1023px) {
+			margin: 14rem 0 8rem;
+			padding-top: 15rem;
+		}
+
+		@media (max-width: $md3+px) {
+			margin: 12rem 0 8rem;
+			padding-top: 12rem;
+		}
+
+		@media (max-width: $md4+px) {
+			margin: 4rem 0 7rem;
+			padding-top: 6rem;
 		}
 	}
 
@@ -97,6 +164,11 @@
 	}
 
 }
+
+
+
+
+
 
 .previous-restoration {
 	&__top {
@@ -186,3 +258,57 @@
 	}	
 }
 
+
+
+.our-family {
+
+	&__head {
+		margin-bottom: 10rem;
+
+		@media (max-width: $md3+px) {
+			margin-bottom: 4rem;
+		}
+
+		& .text-block__suptitle {
+			margin-bottom: 4rem;
+
+			@media (max-width: $md3+px) {
+				margin-bottom: 2rem;
+			}
+		}
+
+		& .text-block__title {
+			max-width: 56.2rem;
+		}
+	}
+	&__body {}
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+
+		& > li {
+			flex: 0 1 50%;
+			padding: 0 4rem;
+			margin-bottom: 18rem;
+
+			@media (max-width: $md3+px) {
+				flex: 0 1 100%;
+				margin-bottom: 12rem;
+			}
+		}
+	}
+	&__list-item {
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+	&__logo {
+		max-width: 31.2rem;
+		margin: 0 auto 13rem;
+
+		@media (max-width: $md3+px) {
+			margin-bottom: 7rem;
+		}
+	}
+	&__btn-wrap {}
+}

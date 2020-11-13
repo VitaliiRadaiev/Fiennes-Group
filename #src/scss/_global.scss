@@ -487,6 +487,10 @@ a {
 			&:not(:last-child) {
 				margin: 0 0 1.5rem; 
 			}
+
+			& > strong {
+				font-weight: 700;
+			}
 		}
 
 		@media (max-width: $md3+px) {
