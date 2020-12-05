@@ -6,10 +6,15 @@
 	}
 
 	&__text-block {
-		margin: 15.3rem 0 15rem;
+		margin: 8.3rem 0 15rem;
 
 		& .text-block__text {
 			max-width: 66rem;
+			margin-bottom: 6.6rem;
+		}
+
+		& .text-block__logo-wrap {
+			margin-bottom: 5rem;
 		}
 
 
@@ -52,10 +57,10 @@
 	&__text {
 		display: flex;
 		color: #231f20;
-		font-family: $seconFontFamily;
-		font-size: 3.2rem;
+		font-family: $mainFontFamily;
+		font-size: 2.8rem;
 		font-weight: 300;
-		line-height: 4.2rem;
+		line-height: 1.31em;
 		justify-content: center;
 		align-items: flex-start;
 
@@ -76,13 +81,13 @@
 		& > span {
 			color: $mainColor;
 			font-family: $seconFontFamily;
-			font-size: 15rem;
+			font-size: 12rem;
 			font-weight: 300;
 			margin-top: 2rem;
 
 			&:last-child {
 				align-self:flex-end;
-				margin-top: 14rem;
+				margin-top: 12rem;
 			}
 
 			@media (max-width: $md2+px) {
@@ -104,9 +109,9 @@
 	}
 	&__subtext {
 		color: #231f20;
-		font-size: 1.5rem;
+		font-size: 1.3rem;
 		font-weight: 700;
-		letter-spacing: 0.214rem;
+		letter-spacing: 0.142em;
 		text-transform: uppercase;
 
 		@media (max-width: $md3+px) {

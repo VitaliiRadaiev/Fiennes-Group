@@ -71,6 +71,22 @@ let _slideToggle = (target, duration = 500) => {
 $(document).ready(function() {
 	@@include('popup.js');
 	@@include('burger.js');
+
+// == anim classes ===================================
+{
+	if(document.querySelector('.our-story')) {
+		document.querySelectorAll('.our-story__text-block').forEach(item => {
+			let textBlock = item.querySelector('.text-block__text');
+
+			for(let i of textBlock.children) {
+				i.classList.add('_anim-items', '_anim-no-hide');
+			}
+		})
+	}
+}
+// == add anim classes ===================================
+
+
 	@@include('scroll-anim.js');
 
 // === Проверка, поддержка браузером формата webp ==================================================================
@@ -120,6 +136,7 @@ $('img.img-svg').each(function(){
 @@include('#card-journal.js');
 @@include('#reviews-slider.js');
 @@include('#line-slider.js');
+@@include('#video.js');
 // === COMMON ==================================================================
 
 

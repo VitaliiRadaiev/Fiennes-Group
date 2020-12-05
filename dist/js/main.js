@@ -208,6 +208,22 @@ document.addEventListener('keydown', function(e) {
 	}
 	$('.burger').click((e) => burgerBtnAnimation(e));
 // === Burger Handler =====================================================================	;
+
+// == anim classes ===================================
+{
+	if(document.querySelector('.our-story')) {
+		document.querySelectorAll('.our-story__text-block').forEach(item => {
+			let textBlock = item.querySelector('.text-block__text');
+
+			for(let i of textBlock.children) {
+				i.classList.add('_anim-items', '_anim-no-hide');
+			}
+		})
+	}
+}
+// == add anim classes ===================================
+
+
 	
 const animItems = document.querySelectorAll('._anim-items');
 
@@ -308,6 +324,7 @@ cardJournalHandler();;
 	let slider = document.querySelectorAll('.reviews-slider');
 	if(slider.length>0) {
 		slider.forEach(item => {
+			let paginationMode = null;
 			var mySwiper = new Swiper(item.querySelector('.swiper-container'), {
 			slidesPerView:1,
 			autoHeight: true,
@@ -315,11 +332,38 @@ cardJournalHandler();;
 			speed: 600,
 			spaceBetween: 15,
 			pagination: {
-			    el: item.querySelector('.swiper-pagination'),
+			    el: item.querySelector('.swiper-container > .swiper-pagination'),
 			    clickable: true,
 			  },
-			})
+			on: {
+				slideChange: function() {
+					if(paginationMode) {
+						paginationMode();
+					}
+				}
+			}  
 		})
+
+		    paginationMode = () => {
+				item.querySelectorAll('.swiper-slide').forEach(slide => {
+				let pagination = item.querySelector('.swiper-container > .swiper-pagination').cloneNode(true);
+					let innerPagin = slide.querySelector('.swiper-pagination');
+
+					if(innerPagin) {
+						innerPagin.remove();
+					}
+
+					slide.append(pagination);
+					item.querySelector('.swiper-container').style.height = 'auto';
+				})
+			}
+
+			paginationMode();
+			
+			let slide = item.querySelector('.swiper-slide.swiper-slide-active');
+			item.querySelector('.swiper-container').style.height = slide.clientHeight + 'px';
+		});
+
 	}
 }
 // == and  slider ==========================================================================
@@ -354,6 +398,60 @@ cardJournalHandler();;
 		})
 	}
 };
+function cardVideoHandler() {
+	function togglePlayPause(video,btn) {
+		if(video.paused) {
+			video.play();
+			btn.firstElementChild.className = 'icon-pause2';
+
+		} else {
+			video.pause();
+			btn.firstElementChild.className = 'icon-play3';
+		}
+	}
+
+	let videoBlock = document.querySelectorAll('.video-block');
+	if(videoBlock.length) {
+		let timerId;
+		videoBlock.forEach((item) => {
+
+			//let videoWrap = card.querySelector('.card-video__video-wrap');
+			let video = item.querySelector('.video-block__video');
+			let btn = item.querySelector('.video-block__play-pause');
+			//let time = item.querySelector('.card-video__duration-time');
+			//let btnLink = item.querySelector('.card-video__btn');
+
+			if(video) {
+				btn.addEventListener('click', (e) => {
+					e.preventDefault();
+					togglePlayPause(video,btn);
+				});
+				video.addEventListener('ended', () => {
+					video.pause();
+					btn.firstElementChild.className = 'icon-play3';
+				});
+				video.addEventListener('mousemove', (e) => { 
+					if(!video.paused) {
+						btn.style.opacity = '1';
+						
+							clearTimeout(timerId);
+							timerId = setTimeout(() => {
+								btn.style.opacity = '0';
+							}, 2000);
+
+					} else {
+						btn.style.opacity = '1';
+					}
+
+				});
+
+			}
+		})
+	}
+
+}
+
+cardVideoHandler();;
 // === COMMON ==================================================================
 
 
@@ -384,29 +482,79 @@ cardJournalHandler();;
 
 
 // === HOME ==================================================================
+// // == hero slider ==========================================================================
+// {
+// 	let heroSlider = document.querySelector('.hero-slider .swiper-container');
+// 	if(heroSlider) {
+
+// 		var mySwiper = new Swiper(heroSlider, {
+// 		slidesPerView:1,
+// 		//loop: true,
+// 		effect: 'fade',
+// 		autoplay: {
+// 		  delay: 4000,
+// 		},
+// 		speed: 1000,
+
+// 		// pagination: {
+// 		//     el: heroSlider.querySelector('.swiper-pagination'),
+// 		//      clickable: true,
+// 		//      type: 'progressbar',
+// 		//   },
+// 		scrollbar: {
+// 		  el: heroSlider.querySelector('.swiper-scrollbar'),
+// 		},
+// 		})
+// 	}
+// }
+// // == and hero slider ==========================================================================
+
 // == hero slider ==========================================================================
 {
 	let heroSlider = document.querySelector('.hero-slider .swiper-container');
 	if(heroSlider) {
 
-		var mySwiper = new Swiper(heroSlider, {
+		let mySwiper = new Swiper(heroSlider, {
 		slidesPerView:1,
-		loop: true,
+		//loop: true,
 		effect: 'fade',
 		autoplay: {
-		  delay: 4000,
+		  delay: 8000,
+		  disableOnInteraction: false,
 		},
-		speed: 800,
+		speed: 1000,
 
 		pagination: {
 		    el: heroSlider.querySelector('.swiper-pagination'),
 		     clickable: true,
+		     renderBullet: function(index, className) {
+		     	return '<div class="' + className + '"> <span class="progress"></span> </div>'
+		     }
 		  },
+		 on: {
+
+		 	slideChangeTransitionStart: function(current) {
+		 		let pagination = heroSlider.querySelector('.swiper-pagination');
+		 		let lenght = pagination.children.length;
+		 		
+		 		for(let i = 0; i < lenght; i++) {
+		 			if(i == current.activeIndex) break;
+		 			pagination.children[i].classList.add('isShow');
+		 		}
+
+		 		for(let i = current.activeIndex; i < lenght; i++) {
+		 			pagination.children[i].classList.remove('isShow');
+		 			pagination.children[i].firstElementChild.style.transform = 'scaleX(0)';
+		 		}
+		 	}
+		 } 
+		// scrollbar: {
+		//   el: heroSlider.querySelector('.swiper-scrollbar'),
+		// },
 		})
 	}
 }
 // == and hero slider ==========================================================================
-
 
 
 // ==  slider ==========================================================================
@@ -417,17 +565,40 @@ cardJournalHandler();;
 			var mySwiper = new Swiper(item.querySelector('.swiper-container'), {
 			slidesPerView:1,
 			effect: 'fade',
-			loop: true,
+			//loop: true,
 			speed: 600,
 			autoplay: {
-			  delay: 3000,
+			  delay: document.querySelector('.res-single .res-single__hero.slider') ? 8000 : 4000,
+			   disableOnInteraction: false,
 			},
 			spaceBetween: 15,
 			pagination: {
 			    el: item.querySelector('.swiper-pagination'),
-			   // clickable: true,
-			    type: 'progressbar',
+			     clickable: true,
+			     renderBullet: function(index, className) {
+			     	return '<div class="' + className + '"> <span class="progress"></span> </div>'
+			     }
 			  },
+			 on: {
+
+			 	slideChangeTransitionStart: function(current) {
+			 		let pagination = item.querySelector('.swiper-pagination');
+			 		let lenght = pagination.children.length;
+			 		
+			 		for(let i = 0; i < lenght; i++) {
+			 			if(i == current.activeIndex) break;
+			 			pagination.children[i].classList.add('isShow');
+			 		}
+
+			 		for(let i = current.activeIndex; i < lenght; i++) {
+			 			pagination.children[i].classList.remove('isShow');
+			 			pagination.children[i].firstElementChild.style.transform = 'scaleX(0)';
+			 		}
+			 	}
+			 }, 
+				// scrollbar: {
+				//   el: item.querySelector('.swiper-scrollbar'),
+				// },
 			})
 		})
 	}
@@ -435,32 +606,27 @@ cardJournalHandler();;
 // == and  slider ==========================================================================
 
 
-// == video block ==========================================================================
-{
-	let video = document.getElementById('player');
-	if(video) {
-		const player = new Plyr(video);
-
-		player.on('ready', event => {
-		  const instance = event.detail.plyr;
-		});
-	}
-}
-// == and  video block ==========================================================================
-
 // ==  slider-2 ==========================================================================
 {
 	let slider = document.querySelector('.slider-2 .swiper-container');
 	if(slider) {
-
-		var mySwiper = new Swiper(slider, {
+		let childrenLength = slider.querySelector('.swiper-wrapper').children.length;
+	    var mySwiper = new Swiper(slider, {
 		slidesPerView:'auto',
 		speed: 600,
 		spaceBetween: 65,
 		centeredSlides: true,
+		initialSlide: childrenLength - 1,
 		scrollbar: {
 		  el: slider.querySelector('.swiper-scrollbar'),
 		},
+		// on: {
+		// 	slideChange: () => {
+		// 		if(mySwiper) {
+		// 			console.dir(mySwiper);
+		// 		}
+		// 	}
+		// }, 
 		 breakpoints: {
 		 	320: {
 		 		spaceBetween: 15
@@ -471,11 +637,18 @@ cardJournalHandler();;
 		   1024: {
 		   	spaceBetween: 65
 		   },
-		 }   
+		 },  
 		})
+
+		// mySwiper.on('slideChange', function () {
+		//   console.log('slide changed');
+		// });
+
 	}
+
 }
-// == and  slider-2 ==========================================================================;
+// == and  slider-2 ==========================================================================
+;
 // === // HOME ==================================================================
 
 // === MARQUES ==================================================================
@@ -677,15 +850,15 @@ function selects_update_all() {
 	if(isMap) {
 		var map;
 
-		let center = {
-			lat: 51.735542,
-			lng: -1.666285,
-		}
+		// let center = {
+		// 	lat: 51.735394,
+		// 	lng: -1.666271,
+		// }
 
-		let markerPosition = {
-			lat: 51.735542,
-			lng: -1.666285,
-		}
+		// let markerPosition = {
+		// 	lat: 51.735394,
+		// 	lng: -1.666271,
+		// }
 
 		// Функция initMap которая отрисует карту на странице
 		function initMap() {
@@ -694,10 +867,10 @@ function selects_update_all() {
 			map = new google.maps.Map(document.getElementById('map'), {
 				// При создании объекта карты необходимо указать его свойства
 				// center - определяем точку на которой карта будет центрироваться
-				center: {lat: center.lat, lng: center.lng},
+				center: {lat: +global.lat, lng: +global.lng},
 				// zoom - определяет масштаб. 0 - видно всю платнеу. 18 - видно дома и улицы города.
 
-				zoom: 14,
+				zoom: 16,
 
 				// Добавляем свои стили для отображения карты
 				//styles: 
@@ -707,7 +880,7 @@ function selects_update_all() {
 			var marker = new google.maps.Marker({
 
 				// Определяем позицию маркера
-			    position: {lat: markerPosition.lat, lng: markerPosition.lng},
+			    position: {lat: +global.lat, lng: +global.lng},
 
 			    // Указываем на какой карте он должен появится. (На странице ведь может быть больше одной карты)
 			    map: map,

@@ -14,13 +14,19 @@
 	}
 	&__row {
 		&_1 {
-			min-height: 20rem;
+			min-height: 16rem;
 			display: flex;
 			align-items: center;
 			display: none;
 
 			@media (max-width: 1200px) {
 				display: flex;
+
+				& .footer__logo {
+					&:last-child {
+						display:none;
+					}
+				}
 			}
 		}
 		&_2 {
@@ -40,7 +46,7 @@
 	}
 	&__logo {
 		&.logo {
-			max-width: 24.3rem;
+			max-width: 16rem;
 		}
 		@media (max-width: $md2+px) {
 			margin: 0 auto;
@@ -73,12 +79,12 @@
 		}
 	}
 	&__nav-column {
-		margin-right: 4.5%;
+		margin-right: 8.5%;
 		margin-bottom: 4rem;
 
 		&:first-child {
 			margin-left: 2%;
-			margin-right: 8%;
+			margin-right: 13%;
 
 			@media (max-width: 1200px) {
 				display: none;
@@ -103,19 +109,19 @@
 	}
 
 	&__nav-title {
-		color: #5a91ab;
-		font-size: 1.5rem;
-		font-weight: 700;
-		letter-spacing: 0.214rem;
+		color: $mainColor;
+		font-size: 1.3rem;
+		font-weight: 400;
+		letter-spacing: 0.142em;
 		text-transform: uppercase;
-		margin-bottom: 3.3rem;
+		margin-bottom: 3.1rem;
 
 		& > a {
-			color: #5a91ab;
-			font-size: 1.5rem;
-			font-weight: 700;
-			letter-spacing: 0.214rem;
+			font-size: 1.3rem;
+			font-weight: 400;
+			letter-spacing: 0.142em;
 			text-transform: uppercase;
+			margin-bottom: 3.1rem;
 		}
 	}
 
@@ -127,8 +133,8 @@
 
 		& > a {
 			color: #231f20;
-			font-size: 1.6rem;
-			line-height: 1.8rem;
+			font-size: 1.3rem;
+			line-height: 1.5rem;
 
 			&:hover {
 				text-decoration: underline;
@@ -142,12 +148,12 @@
 	}
 	&__action-title {
 		color: #231f20;
-		font-size: 2rem;
+		font-size: 1.8rem;
 		font-weight: 500;
-		margin-bottom: 2.2rem;
+		margin-bottom: 2rem;
 		text-align: right;
 
-		@media (max-width: 1400px) {
+		@media (max-width: 1200px) {
 			text-align: center;
 		}
 	}

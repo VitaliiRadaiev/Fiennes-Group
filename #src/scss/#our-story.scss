@@ -116,10 +116,15 @@
 	}
 
 	&__book-restoration {
+		background: #edededcc;
+		margin: 12rem 0 15rem; 
 
+		@media (max-width: $md3+px) {
+			margin: 7rem 0 9rem;  
+		}
 	}
 	&__book-restoration-body {
-		min-height: 52rem;
+		min-height: 18rem;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -174,7 +179,6 @@
 	&__top {
 		display: flex;
 		flex-direction: column;
-
 		& .previous-restoration__text {
 			margin-left: auto;
 			text-align: right;
@@ -192,10 +196,25 @@
 	&__text {
 		max-width: 75rem;
 		padding: 3rem 2rem;
-		font-family: $seconFontFamily;
+		font-family: $mainFontFamily;
 		font-size: 1.5rem;
 		letter-spacing: 0.1rem;
 		line-height: 1.8rem;
+
+		& h3 {
+			color: #231f20;
+			font-family: $mainFontFamily;
+			font-size: 1.3rem;
+			font-weight: 700;
+			letter-spacing: 0.142em;
+			line-height: 1.8rem;
+			display: inline-block;
+
+			@media (max-width: $md4+px) {
+				font-size: 1.2rem;
+				letter-spacing: 0.142em;
+			}
+		}
 	}
 
 	&__bottom {
