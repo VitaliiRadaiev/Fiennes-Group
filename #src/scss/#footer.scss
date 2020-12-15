@@ -111,14 +111,14 @@
 	&__nav-title {
 		color: $mainColor;
 		font-size: 1.3rem;
-		font-weight: 400;
+		font-weight: 600;
 		letter-spacing: 0.142em;
 		text-transform: uppercase;
 		margin-bottom: 3.1rem;
 
 		& > a {
 			font-size: 1.3rem;
-			font-weight: 400;
+			font-weight: 600;
 			letter-spacing: 0.142em;
 			text-transform: uppercase;
 			margin-bottom: 3.1rem;
@@ -130,11 +130,13 @@
 	}
 	&__nav-list-item {
 		margin-bottom: 1.6rem;
+		font-weight: 400;
 
 		& > a {
 			color: #231f20;
 			font-size: 1.3rem;
 			line-height: 1.5rem;
+			font-weight: 400;
 
 			&:hover {
 				text-decoration: underline;

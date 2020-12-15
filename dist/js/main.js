@@ -516,10 +516,9 @@ cardVideoHandler();;
 
 		let mySwiper = new Swiper(heroSlider, {
 		slidesPerView:1,
-		//loop: true,
 		effect: 'fade',
 		autoplay: {
-		  delay: 8000,
+		  delay: 6500,
 		  disableOnInteraction: false,
 		},
 		speed: 1000,

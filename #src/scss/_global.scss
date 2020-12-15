@@ -602,10 +602,14 @@ a {
 		max-width: 908px;
 		color: #231f20;
 		font-family: $mainFontFamily;
-		font-size: 1.8rem;
+		font-size: 1.6rem;
 		font-weight: 300;
 		line-height: 2.3rem;
 		margin-bottom: 4.6rem;
+
+		& a {
+			text-decoration: underline;
+		}
 
 		& p {
 
@@ -1069,6 +1073,16 @@ a {
 
 // === one-img-block ========================================================================
 .one-img-block {
+	margin: 13.3rem 0 13.3rem;
+
+	@media (max-width: $md3+px) {
+		margin: 12rem 0 12rem;
+	}
+
+	@media (max-width: $md4+px) {
+		margin: 5rem 0 5rem;
+	}
+	
 	& img {
 		width: 100%;
 	}
@@ -1126,6 +1140,13 @@ a {
 
 // === three-img-block ========================================================================
 .three-img-block {
+	margin-bottom: 12rem;
+	@media (max-width: $md2+px) {
+		margin-bottom: 10rem;
+	}
+	@media (max-width: $md3+px) {
+		margin-bottom: 7rem;
+	}
 	&_reverse {
 		& .three-img-block__body {
 			flex-direction: column-reverse;
@@ -1850,7 +1871,7 @@ a {
 
 				&.swiper-pagination-bullet-active {
 					& > .progress {
-						 animation: dash 8.1s linear forwards;
+						 animation: dash 6.6s linear forwards;
 					}
 				}
 			}
