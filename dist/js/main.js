@@ -518,7 +518,7 @@ cardVideoHandler();;
 		slidesPerView:1,
 		effect: 'fade',
 		autoplay: {
-		  delay: 6500,
+		  delay: 4000,
 		  disableOnInteraction: false,
 		},
 		speed: 1000,
